@@ -1,6 +1,8 @@
 <mat-sidenav-container fullscreen>
+
+  <!-- Side bar de navegación que se despliga a la izquierda -->
   <mat-sidenav #sidenav mode="push" [ngStyle]="{width: '250px'}">
-    <mat-toolbar color="primary">
+    <mat-toolbar color="warn">
 
       <span>Menú</span>
 
@@ -24,7 +26,8 @@
 
   </mat-sidenav>
 
-  <mat-toolbar color="warn">
+  <!-- Sidenav principal -->
+  <mat-toolbar color="primary">
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
 
@@ -32,14 +35,14 @@
 
     <span class="spacer"></span>
 
-    <button mat-button>
+    <button mat-stroked-button>
       <mat-icon>logout</mat-icon>
         Cerrar Sesión
     </button>
 
   </mat-toolbar>
 
-  <div class="container">
+  <div class="container p-3">
     <router-outlet />
 
   </div>
