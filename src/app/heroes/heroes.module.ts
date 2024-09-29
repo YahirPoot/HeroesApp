@@ -20,7 +20,7 @@ import { HeroImagePipe } from './pipes/hero-image.pipe';
     AddNewHeroPageComponent,
     SearchPageComponent,
     CardComponent,
-    HeroImagePipe
+    HeroImagePipe,
   ],
   imports: [
     CommonModule,
