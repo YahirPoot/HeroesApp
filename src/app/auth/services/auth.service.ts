@@ -23,10 +23,15 @@ export class AuthService {
 
   login( email: string, password: string ): Observable<User> {
 
-    return this.http.post<User>(`${ this.baseUrl }/users/1`, { email, password })
+    return this.http.get<User>(`${ this.baseUrl }/users/1`)
       .pipe(
         tap( user => this.user = user),
         tap( user => localStorage.setItem('token', user.id.toString()))
       );
+  }
+
+  logout(): void {
+    this.user = undefined;
+    localStorage.clear();
   }
 }

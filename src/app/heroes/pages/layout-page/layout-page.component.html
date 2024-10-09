@@ -35,7 +35,10 @@
 
     <span class="spacer"></span>
 
-    <button mat-stroked-button>
+    <span class="p-2">{{ user?.user | titlecase }}</span>
+
+    <button mat-stroked-button
+      (click)="onLogout()">
       <mat-icon>logout</mat-icon>
         Cerrar Sesión
     </button>

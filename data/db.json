@@ -4,6 +4,11 @@
       "id": 1,
       "user": "John Doe",
       "email": "john.due@gmail.com"
+    },
+    {
+      "email": "",
+      "password": "",
+      "id": 2
     }
   ],
   "heroes": [
