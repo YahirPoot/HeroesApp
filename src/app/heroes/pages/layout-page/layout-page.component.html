@@ -2,7 +2,7 @@
 
   <!-- Side bar de navegación que se despliga a la izquierda -->
   <mat-sidenav #sidenav mode="push" [ngStyle]="{width: '250px'}">
-    <mat-toolbar color="warn">
+    <mat-toolbar color="accent">
 
       <span>Menú</span>
 
@@ -27,7 +27,7 @@
   </mat-sidenav>
 
   <!-- Sidenav principal -->
-  <mat-toolbar color="primary">
+  <mat-toolbar color="warn">
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
 
@@ -35,7 +35,7 @@
 
     <span class="spacer"></span>
 
-    <button mat-stroked-button>
+    <button mat-flat-button>
       <mat-icon>logout</mat-icon>
         Cerrar Sesión
     </button>
