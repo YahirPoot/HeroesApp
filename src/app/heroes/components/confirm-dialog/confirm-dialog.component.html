@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>¿Está Seguro?</h2>
+<mat-dialog-content>
+  <p>Este proceso no es reversible, está a punto de eleimanar a </p>
+  <mat-form-field>
+    <mat-label>Favorite Animal</mat-label>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-stroked-button (click)="onNoClick()">No Gracias</button>
+
+  <span class="spacer"></span>
+  <button mat-stroked-button color="accent" (clicl)="onConfirmClick()">Ok</button>
+</mat-dialog-actions>
