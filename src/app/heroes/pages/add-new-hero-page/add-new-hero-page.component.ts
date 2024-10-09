@@ -7,7 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Hero, Publisher } from '../../interfaces/hero.interface';
 import { HeroesService } from '../../services/heroes.service';
-import { switchMap } from 'rxjs';
+import { filter, pipe, switchMap } from 'rxjs';
 import { ConfirmDialogComponent } from '../../components/confirm-dialog/confirm-dialog.component';
 
 @Component({
@@ -92,15 +92,28 @@ export class AddNewHeroPageComponent implements OnInit {
       data:  this.heroForm.value,
     });
 
-    dialogRef.afterClosed().subscribe( result => {
-      console.log(`Dialog result: ${ result }`);
+    dialogRef.afterClosed()
+      .pipe(
+        filter( (result: boolean) => result ),
+        switchMap( () => this.heroesService.deleteHero( this.currentHero.id )),
+        filter( wasDeleted => wasDeleted ),
+      )
+      .subscribe(()  => {
+        this.router.navigate([ '/heroes' ]);
+      })
+    // dialogRef.afterClosed().subscribe( result => {
+    //   console.log(`Dialog result: ${ result }`);
 
-      if ( !result ) return;
+    //   if ( !result ) return;
 
-      this.heroesService.deleteHero( this.currentHero.id );
-      this.router.navigate([ '/']);
+    //   this.heroesService.deleteHero( this.currentHero.id )
+    //     .subscribe( wasDeleted => {
+    //       if ( wasDeleted) {
+    //         this.router.navigate([ '/heroes' ]);
+    //       }
+    //     })
 
-    })
+    // })
   }
 
   showSnackbar( message: string ): void {
