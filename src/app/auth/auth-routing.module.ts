@@ -16,6 +16,8 @@ const routes: Routes = [
     ]
   },
 
+  // http://localhost:4200/auth/login
+
 ];
 
 @NgModule({
